@@ -42,7 +42,7 @@ IMAGE=$(readlink -f $i | tr -d \"  )
 
 #echo $ID,$TITLE,$ARTIST,$ALBUM,$DATE,$GENRE,$LOCATION,$IMAGE
 
-echo INSERT INTO \`musics\` \(id, title, artist, album, date, genre, location, image\) VALUES \($ID, \"$TITLE\",\"$ARTIST\",\"$ALBUM\",$DATE,\"$GENRE\",\"$LOCATION\",\"$IMAGE\"\)\; >> musicList.sql
+echo INSERT INTO \`musics\` \(title, artist, album, date, genre, location, image\) VALUES \(\"$TITLE\",\"$ARTIST\",\"$ALBUM\",$DATE,\"$GENRE\",\"$LOCATION\",\"$IMAGE\"\)\; >> musicList.sql
 rm data.txt
 
 
