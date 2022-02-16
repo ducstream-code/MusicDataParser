@@ -45,7 +45,7 @@ echo Parsing $i datas
 ffmpeg -i $i -f ffmetadata data.txt 2> /dev/null
 TITLE=$(cat data.txt | grep 'title=' | cut -d= -f2 | cut -d'(' -f1| tr -d \" )
 
-ARTIST=$(cat data.txt | grep ^artist | cut -d= -f2 | cut -d';' -f1 | tr -d \"  )
+ARTIST=$(cat data.txt | grep ^artist | cut -d= -f2 | tr -d \"  )
 
 ALBUM=$(cat data.txt | grep 'album=' | cut -d= -f2 | tr -d \" )
 
