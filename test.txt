@@ -1,0 +1,12 @@
+;FFMETADATA1
+comment=BPMer demo (www.wildbits.com)
+title=Drama In The Subway
+artist=à\;GRUMH...
+album=No Way Out
+TBPM=134
+album_artist=à\;GRUMH...
+track=6/9
+TSO2=à\;GRUMH...
+genre=EBM
+date=1986
+encoder=Lavf58.76.100

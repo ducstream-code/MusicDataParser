@@ -36,7 +36,7 @@ find . -name "* *" -type f | rename 's/ /_/g'
 declare -i ID=0
 declare -i FILEnb=$(ls | wc -l)
 declare -i COUNT=1
-for i in *.mp3 
+for i in *.mp3
  do
 ID=$((ID+1))
 COUNT=$((COUNT+1))
@@ -45,16 +45,16 @@ echo $COUNT'/'$FILEnb
 echo Parsing $i datas
 
 ffmpeg -i $i -f ffmetadata data.txt 2> /dev/null
-TITLE=$(cat data.txt | grep 'title=' | cut -d= -f2 | cut -d'(' -f1| tr -d \" | tr -d \* | tr -d '\\' )
+TITLE=$(cat data.txt | grep 'title=' | cut -d= -f2 | cut -d'(' -f1| tr -d \" | tr -d \* | tr -d '\\' | tr -d \; )
 
-ARTIST=$(cat data.txt | grep ^artist | cut -d= -f2 | tr -d \" | tr -d \* | tr '\\')
+ARTIST=$(cat data.txt | grep ^artist | cut -d= -f2 | tr -d \" | tr -d \* | tr -d '\\' | tr -d \;  )
 
-ALBUM=$(cat data.txt | grep 'album=' | cut -d= -f2 | tr -d \" | tr -d \* | tr '\\')
+ALBUM=$(cat data.txt | grep 'album=' | cut -d= -f2 | tr -d \" | tr -d \* | tr -d '\\' | tr -d \; )
 
- 
-DATE=$(cat data.txt | grep 'date=' |cut -d= -f2 | tr -d \" | tr -d \* )
 
-GENRE=$(cat data.txt | grep 'genre=' | cut -d= -f2 | tr -d \" | tr -d \* ) 
+DATE=$(cat data.txt | grep 'date=' |cut -d= -f2 | tr -d \" | tr -d \* | tr -d \; )
+
+GENRE=$(cat data.txt | grep 'genre=' | cut -d= -f2 | tr -d \" | tr -d \* | tr -d '\\' | tr -d \; )
 
 LOCATION=$(readlink -f $i | tr -d \"  | tr '*' '\*' )
 
