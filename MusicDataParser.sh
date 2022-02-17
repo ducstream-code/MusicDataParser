@@ -34,11 +34,13 @@ find . -name "* *" -type f | rename 's/ /_/g'
 
 
 declare -i ID=0
-
+declare -i FILEnb=$(ls | wc -l)
+declare -i COUNT=1
 for i in *.mp3 
  do
 ID=$((ID+1))
-
+COUNT=$((COUNT+1))
+echo $COUNT'/'$FILEnb
 
 echo Parsing $i datas
 
