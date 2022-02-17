@@ -45,11 +45,11 @@ echo $COUNT'/'$FILEnb
 echo Parsing $i datas
 
 ffmpeg -i $i -f ffmetadata data.txt 2> /dev/null
-TITLE=$(cat data.txt | grep 'title=' | cut -d= -f2 | cut -d'(' -f1| tr -d \" | tr '*' '\*' )
+TITLE=$(cat data.txt | grep 'title=' | cut -d= -f2 | cut -d'(' -f1| tr -d \" | tr -d \* | tr -d '\\' )
 
-ARTIST=$(cat data.txt | grep ^artist | cut -d= -f2 | tr -d \" | tr -d \* )
+ARTIST=$(cat data.txt | grep ^artist | cut -d= -f2 | tr -d \" | tr -d \* | tr '\\')
 
-ALBUM=$(cat data.txt | grep 'album=' | cut -d= -f2 | tr -d \" | tr -d \* )
+ALBUM=$(cat data.txt | grep 'album=' | cut -d= -f2 | tr -d \" | tr -d \* | tr '\\')
 
  
 DATE=$(cat data.txt | grep 'date=' |cut -d= -f2 | tr -d \" | tr -d \* )
