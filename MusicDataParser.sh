@@ -62,7 +62,7 @@ DURATION=$(mp3info -p "%S\n" $i | awk 'BEGIN { s = 0 }; { s = s + $1 }; END { pr
 
 #echo $ID,$TITLE,$ARTIST,$ALBUM,$DATE,$GENRE,$LOCATION,$IMAGE,$DURATION
 
-echo INSERT INTO \`musics\` \(title, artist, album, date, genre, location, image, duration\) VALUES \(\"$TITLE\",\"$ARTIST\",\"$ALBUM\",$DATE,\"$GENRE\",\"$LOCATION\",\"$IMAGE\",$DURATION\)\; >> musicList.sql
+echo INSERT INTO \`musics\` \(title, artist, album, date, genre, location, image, duration\) VALUES \(\"$TITLE\",\"$ARTIST\",\"$ALBUM\",\"$DATE\",\"$GENRE\",\"$LOCATION\",\"$IMAGE\",$DURATION\)\; >> musicList.sql
 rm data.txt
 
 
