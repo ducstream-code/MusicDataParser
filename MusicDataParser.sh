@@ -45,20 +45,20 @@ echo $COUNT'/'$FILEnb
 echo Parsing $i datas
 
 ffmpeg -i $i -f ffmetadata data.txt 2> /dev/null
-TITLE=$(cat data.txt | grep 'title=' | cut -d= -f2 | cut -d'(' -f1| tr -d \" )
+TITLE=$(cat data.txt | grep 'title=' | cut -d= -f2 | cut -d'(' -f1| tr -d \" | tr '*' '\*' )
 
-ARTIST=$(cat data.txt | grep ^artist | cut -d= -f2 | tr -d \"  )
+ARTIST=$(cat data.txt | grep ^artist | cut -d= -f2 | tr -d \" | tr -d \* )
 
-ALBUM=$(cat data.txt | grep 'album=' | cut -d= -f2 | tr -d \" )
+ALBUM=$(cat data.txt | grep 'album=' | cut -d= -f2 | tr -d \" | tr -d \* )
 
  
-DATE=$(cat data.txt | grep 'date=' |cut -d= -f2 | tr -d \"  )
+DATE=$(cat data.txt | grep 'date=' |cut -d= -f2 | tr -d \" | tr -d \* )
 
-GENRE=$(cat data.txt | grep 'genre=' | cut -d= -f2 | tr -d \" ) 
+GENRE=$(cat data.txt | grep 'genre=' | cut -d= -f2 | tr -d \" | tr -d \* ) 
 
-LOCATION=$(readlink -f $i | tr -d \"  )
+LOCATION=$(readlink -f $i | tr -d \"  | tr '*' '\*' )
 
-IMAGE=$(readlink -f $i | tr -d \"  )
+IMAGE=$(readlink -f $i | tr -d \" | tr '*' '\*' )
 
 DURATION=$(mp3info -p "%S\n" $i | awk 'BEGIN { s = 0 }; { s = s + $1 }; END { print s }' )
 
