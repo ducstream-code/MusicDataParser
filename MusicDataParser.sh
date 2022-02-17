@@ -22,7 +22,7 @@ echo "CREATE TABLE IF NOT EXISTS \`musics\` (
   \`title\` varchar(255) NOT NULL,
   \`artist\` varchar(255) NOT NULL,
   \`album\` varchar(255) NOT NULL,
-  \`date\` int(11) NOT NULL,
+  \`date\` varchar(30) NOT NULL,
   \`genre\` varchar(255) NOT NULL,
   \`location\` varchar(255) NOT NULL,
   \`image\` varchar(255) NOT NULL,
